@@ -6,14 +6,14 @@
   <title>利用ngnix进行端口转发 | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。ngnix就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置12sudo apt install ngnix //安装ngnixsudo vim">
-<meta name="keywords" content="ngnix 端口转发 端口代理 linux">
+<meta name="keywords" content="ngnix,端口转发,端口代理,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用ngnix进行端口转发">
 <meta property="og:url" content="http://blue-troy.github.io/2018/11/05/ngnix进行端口转发/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
 <meta property="og:description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。ngnix就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置12sudo apt install ngnix //安装ngnixsudo vim">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-05T12:13:41.239Z">
+<meta property="og:updated_time" content="2018-11-05T12:20:57.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用ngnix进行端口转发">
 <meta name="twitter:description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。ngnix就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置12sudo apt install ngnix //安装ngnixsudo vim">
@@ -108,7 +108,8 @@
 </blockquote>
 <h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
 </code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="一、安装及配置"><a href="#一、安装及配置" class="headerlink" title="一、安装及配置"></a>一、安装及配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ngnix //安装ngnix</span><br><span class="line">sudo vim /etc/nginx/sites-enabled/yourProject //新建编辑配置文件</span><br></pre></td></tr></table></figure>
-<h6 id="配置文件："><a href="#配置文件：" class="headerlink" title="配置文件："></a>配置文件：</h6><p>例：转发80端口到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        //监听80端口</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line">                    // 转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置文件:</strong></p>
+<p>例：转发80端口到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        //监听80端口</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line">                    // 转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>例：转发绑定到服务器上的blog.bluetroy.com到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        //监听绑定在80端口上的域名</span><br><span class="line">        server_name blog.bluetroy.com;</span><br><span class="line">        location / &#123;</span><br><span class="line">                    // 转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="二、检查配置并开启服务"><a href="#二、检查配置并开启服务" class="headerlink" title="二、检查配置并开启服务"></a>二、检查配置并开启服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//配置文件格式检查 通过后就可以开启</span><br><span class="line">sudo nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line">// 若nginx 已经开启，进行加载配置</span><br><span class="line">sudo service ngnix reload</span><br></pre></td></tr></table></figure>
 
@@ -121,12 +122,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blue-troy.github.io/2018/11/05/ngnix进行端口转发/" data-id="cjo49oo6w0000i30othksq7sb" class="article-share-link">
+      <a data-url="http://blue-troy.github.io/2018/11/05/ngnix进行端口转发/" data-id="cjo49tl740000j10o6c4ibl7b" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ngnix-端口转发-端口代理-linux/">ngnix 端口转发 端口代理 linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ngnix/">ngnix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口代理/">端口代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口转发/">端口转发</a></li></ul>
 
 
     </footer>
@@ -156,7 +157,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ngnix-端口转发-端口代理-linux/">ngnix 端口转发 端口代理 linux</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linux/">linux</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ngnix/">ngnix</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口代理/">端口代理</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口转发/">端口转发</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -165,7 +166,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/ngnix-端口转发-端口代理-linux/" style="font-size: 10px;">ngnix 端口转发 端口代理 linux</a>
+      <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/ngnix/" style="font-size: 10px;">ngnix</a> <a href="/tags/端口代理/" style="font-size: 10px;">端口代理</a> <a href="/tags/端口转发/" style="font-size: 10px;">端口转发</a>
     </p>
   </div>
 
