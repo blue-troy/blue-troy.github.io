@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>bluetroy&#39;s blog</title>
+  <title>利用nginx进行端口转发 | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
-<meta name="keywords" content="bluetroy java linux idea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="bluetroy&#39;s blog">
-<meta property="og:url" content="http://blog.bluetroy.com/index.html">
+  <meta name="description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置12sudo apt install nginx //安装nginxsudo vim">
+<meta name="keywords" content="nginx,端口转发,端口代理,linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用nginx进行端口转发">
+<meta property="og:url" content="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
-<meta property="og:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta property="og:description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置12sudo apt install nginx //安装nginxsudo vim">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-05T12:39:10.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bluetroy&#39;s blog">
-<meta name="twitter:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta name="twitter:title" content="利用nginx进行端口转发">
+<meta name="twitter:description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置12sudo apt install nginx //安装nginxsudo vim">
   
     <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
   
@@ -51,7 +52,7 @@
     <div class="collapse navbar-collapse" id="main-menu-navbar">
       <ul class="nav navbar-nav">
         
-          <li><a class="active" href="/index.html">Home</a></li>
+          <li><a class="" href="/index.html">Home</a></li>
         
           <li><a class="" href="/archives/">Archives</a></li>
         
@@ -76,15 +77,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-    <article id="post-nginx进行端口转发" class="article article-type-post" itemscope="" itemprop="blogPost">
+          <article id="post-nginx进行端口转发" class="article article-type-post" itemscope="" itemprop="blogPost">
 
   <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/05/nginx进行端口转发/">利用nginx进行端口转发</a>
+    <h1 class="article-title" itemprop="name">
+      利用nginx进行端口转发
     </h1>
   
 
@@ -134,11 +133,10 @@
     </footer>
   </div>
   
-</article>
-
-
+    
 
   
+</article>
 
 
 
