@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>bluetroy&#39;s blog</title>
+  <title>ubuntu18.04安装jdk并配置 | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
-<meta name="keywords" content="bluetroy java linux idea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="bluetroy&#39;s blog">
-<meta property="og:url" content="http://blog.bluetroy.com/index.html">
+  <meta name="description" content="导语： 现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。  环境：ubuntu 18.04 步骤一、安装123456//搜索jdk包sudo apt search openjdk//安装jdk 这里选择的是最新的 LTS-jdk jdk11sudo apt install openjdk-11-jd">
+<meta name="keywords" content="ubuntu,jdk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu18.04安装jdk并配置">
+<meta property="og:url" content="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
-<meta property="og:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta property="og:description" content="导语： 现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。  环境：ubuntu 18.04 步骤一、安装123456//搜索jdk包sudo apt search openjdk//安装jdk 这里选择的是最新的 LTS-jdk jdk11sudo apt install openjdk-11-jd">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-10T09:48:27.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bluetroy&#39;s blog">
-<meta name="twitter:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta name="twitter:title" content="ubuntu18.04安装jdk并配置">
+<meta name="twitter:description" content="导语： 现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。  环境：ubuntu 18.04 步骤一、安装123456//搜索jdk包sudo apt search openjdk//安装jdk 这里选择的是最新的 LTS-jdk jdk11sudo apt install openjdk-11-jd">
   
     <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
   
@@ -53,7 +54,7 @@
     <div class="collapse navbar-collapse" id="main-menu-navbar">
       <ul class="nav navbar-nav">
         
-          <li><a class="active" href="/index.html">Home</a></li>
+          <li><a class="" href="/index.html">Home</a></li>
         
           <li><a class="" href="/archives/">Archives</a></li>
         
@@ -78,15 +79,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-    <article id="post-ubuntu18-04安装jdk并配置" class="article article-type-post" itemscope="" itemprop="blogPost">
+          <article id="post-ubuntu18-04安装jdk并配置" class="article article-type-post" itemscope="" itemprop="blogPost">
 
   <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/10/ubuntu18-04安装jdk并配置/">ubuntu18.04安装jdk并配置</a>
+    <h1 class="article-title" itemprop="name">
+      ubuntu18.04安装jdk并配置
     </h1>
   
 
@@ -141,72 +140,22 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
   
-    <article id="post-nginx进行端口转发" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-  <header class="article-header">
-    
+  <li role="presentation">
+    <a href="/2018/11/05/nginx进行端口转发/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">利用nginx进行端口转发</span>
+    </a>
+  </li>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/05/nginx进行端口转发/">利用nginx进行端口转发</a>
-    </h1>
   
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2018/11/05/nginx进行端口转发/" class="article-date"><time datetime="2018-11-05T11:24:16.000Z" itemprop="datePublished">2018-11-05</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h4><blockquote>
-<p>我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。</p>
-</blockquote>
-<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
-</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="一、安装及配置"><a href="#一、安装及配置" class="headerlink" title="一、安装及配置"></a>一、安装及配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//安装nginx</span><br><span class="line">sudo apt install nginx -y</span><br><span class="line">sudo vim /etc/nginx/sites-enabled/yourProject //新建编辑配置文件</span><br></pre></td></tr></table></figure>
-<p><strong>配置文件:</strong></p>
-<p>例：转发80端口到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"><span class="meta">#</span>       监听80端口</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line"><span class="meta">#</span>       转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>例：转发绑定到服务器上的blog.bluetroy.com到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line"><span class="meta">#</span>       监听绑定在80端口上的域名</span><br><span class="line">        server_name blog.bluetroy.com;</span><br><span class="line">        location / &#123;</span><br><span class="line"><span class="meta">#</span>       转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、检查配置并开启服务"><a href="#二、检查配置并开启服务" class="headerlink" title="二、检查配置并开启服务"></a>二、检查配置并开启服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//配置文件格式检查 通过后就可以开启</span><br><span class="line">sudo nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line">// 若nginx 已经开启，进行加载配置</span><br><span class="line">sudo service nginx reload</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjobgcpx90001ls0oy1czm1tm" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口代理/">端口代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口转发/">端口转发</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
+</ul>
 
 
   
+</article>
 
 
 
