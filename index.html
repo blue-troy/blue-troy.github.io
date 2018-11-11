@@ -118,7 +118,7 @@
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//尝试输出java_home 若输出空行则代表未进行配置需要配置</span><br><span class="line">echo $java_home</span><br><span class="line">//利用以下步骤找到java_home</span><br><span class="line">which java</span><br><span class="line">// 输出 /usr/bin/java 我们再去找这个/usr/bin/java的实际位置</span><br><span class="line">file /usr/bin/java</span><br><span class="line">//输出 /usr/bin/java: symbolic link to /etc/alternatives/java 继续深入查找</span><br><span class="line">file /etc/alternatives/java</span><br><span class="line">// 输出 /etc/alternatives/java: symbolic link to /usr/lib/jvm/java-11-openjdk-amd64/bin/java</span><br><span class="line">// 好了现在找到了jdk的真实地址了 ：/usr/lib/jvm/java-11-openjdk-amd64/bin/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>2 配置 java_home</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo echo export JAVA_HOME=”/usr/lib/jvm/java-11-openjdk-amd64/bin”&gt;&gt;~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line">tail  ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//把刚刚的地址输入到~/.bashrc中</span><br><span class="line">sudo echo export JAVA_HOME=”/usr/lib/jvm/java-11-openjdk-amd64/bin”&gt;&gt;~/.bashrc</span><br><span class="line">// 执行 ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line">// 验证刚刚的配置，若末尾出现java_home 相关内容则说明配置成功</span><br><span class="line">tail  ~/.bashrc</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -130,7 +130,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjobgcpxb0002ls0o0iys0ldz" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjoc7p73n0000ay0ohzfbzow4" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -191,7 +191,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjobgcpx90001ls0oy1czm1tm" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjoc7p73t0001ay0ob7p0g79w" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
