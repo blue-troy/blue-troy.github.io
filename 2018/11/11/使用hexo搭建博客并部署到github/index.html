@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>利用nginx进行端口转发 | bluetroy&#39;s blog</title>
+  <title>使用hexo搭建博客并部署到github | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置123//安装nginxsudo apt install nginx -ysudo">
-<meta name="keywords" content="nginx,端口转发,端口代理,linux">
+  <meta name="description" content="导语： 现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。  环境：macOS 10.14.1 步骤安装参考官方文档 部署安装依赖部署到github需要安装 hexo-deployer-git1npm install hexo-deployer-git --save 配置github生成公钥1234/">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用nginx进行端口转发">
-<meta property="og:url" content="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/index.html">
+<meta property="og:title" content="使用hexo搭建博客并部署到github">
+<meta property="og:url" content="http://blog.bluetroy.com/2018/11/11/使用hexo搭建博客并部署到github/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
-<meta property="og:description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置123//安装nginxsudo apt install nginx -ysudo">
+<meta property="og:description" content="导语： 现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。  环境：macOS 10.14.1 步骤安装参考官方文档 部署安装依赖部署到github需要安装 hexo-deployer-git1npm install hexo-deployer-git --save 配置github生成公钥1234/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-10T12:54:37.699Z">
+<meta property="og:updated_time" content="2018-11-11T02:35:02.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用nginx进行端口转发">
-<meta name="twitter:description" content="导语： 我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。  环境：ubuntu 18.04 步骤一、安装及配置123//安装nginxsudo apt install nginx -ysudo">
+<meta name="twitter:title" content="使用hexo搭建博客并部署到github">
+<meta name="twitter:description" content="导语： 现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。  环境：macOS 10.14.1 步骤安装参考官方文档 部署安装依赖部署到github需要安装 hexo-deployer-git1npm install hexo-deployer-git --save 配置github生成公钥1234/">
   
     <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
   
@@ -79,13 +79,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          <article id="post-nginx进行端口转发" class="article article-type-post" itemscope="" itemprop="blogPost">
+          <article id="post-使用hexo搭建博客并部署到github" class="article article-type-post" itemscope="" itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      利用nginx进行端口转发
+      使用hexo搭建博客并部署到github
     </h1>
   
 
@@ -94,7 +94,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2018/11/05/nginx进行端口转发/" class="article-date"><time datetime="2018-11-05T11:24:16.000Z" itemprop="datePublished">2018-11-05</time></a>
+  <a href="/2018/11/11/使用hexo搭建博客并部署到github/" class="article-date"><time datetime="2018-11-11T01:45:51.000Z" itemprop="datePublished">2018-11-11</time></a>
 </div>
 
     
@@ -106,14 +106,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h4><blockquote>
-<p>我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。</p>
+<p>现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。</p>
 </blockquote>
-<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
-</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="一、安装及配置"><a href="#一、安装及配置" class="headerlink" title="一、安装及配置"></a>一、安装及配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//安装nginx</span><br><span class="line">sudo apt install nginx -y</span><br><span class="line">sudo vim /etc/nginx/sites-enabled/yourProject //新建编辑配置文件</span><br></pre></td></tr></table></figure>
-<p><strong>配置文件:</strong></p>
-<p>例：转发80端口到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"><span class="meta">#</span>       监听80端口</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line"><span class="meta">#</span>       转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>例：转发绑定到服务器上的blog.bluetroy.com到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line"><span class="meta">#</span>       监听绑定在80端口上的域名</span><br><span class="line">        server_name blog.bluetroy.com;</span><br><span class="line">        location / &#123;</span><br><span class="line"><span class="meta">#</span>       转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、检查配置并开启服务"><a href="#二、检查配置并开启服务" class="headerlink" title="二、检查配置并开启服务"></a>二、检查配置并开启服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//配置文件格式检查 通过后就可以开启</span><br><span class="line">sudo nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line">// 若nginx 已经开启，进行加载配置</span><br><span class="line">sudo service nginx reload</span><br></pre></td></tr></table></figure>
+<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>macOS 10.14.1
+</code></pre><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>部署到github需要安装 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p>生成公钥<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//首先查看是否有公钥</span><br><span class="line">ls ~/.ssh</span><br><span class="line">//若没有id_rsa.pub文件则没有，需要生成公钥</span><br><span class="line">ssh-keygen -t rsa -C “你的邮箱”</span><br></pre></td></tr></table></figure></p>
+<p>配置公钥<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 登录Github，点击头像下的settings，添加ssh。新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</span><br><span class="line">// 查看是否配置成功，若出现hi 你的名字 则成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>新建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在github新建项目，以github账号blue-troy为例新建项目名：blue-troy.github.io</span><br></pre></td></tr></table></figure></p>
+<p>在 _config.yml 中修改参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: github: git@github.com:blue-troy/blue-troy.github.io.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>发布前生成网页并查看是否正确<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>确认无误后发布到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>发布后以本人为例的访问地址为<br><a href="https://blue-troy.github.io/" target="_blank" rel="noopener">https://blue-troy.github.io/</a> ，</p>
 
       
     </div>
@@ -124,12 +128,12 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjoc92aiu0001fw0o8hpxsuza" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/11/使用hexo搭建博客并部署到github/" data-id="cjoc9320i0000g60oqpbsv1ev" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口代理/">端口代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口转发/">端口转发</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
 
 
     </footer>
@@ -138,13 +142,13 @@
     
 <ul id="article-nav" class="nav nav-pills nav-justified">
   
-  
   <li role="presentation">
-    <a href="/2018/11/10/ubuntu18-04安装jdk并配置/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/10/ubuntu18-04安装jdk并配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
       <span class="article-nav-link-title">ubuntu18.04安装jdk并配置</span>
-      <i class="fa fa-chevron-right pull-right"></i>
     </a>
   </li>
+  
   
 </ul>
 

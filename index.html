@@ -80,6 +80,71 @@
         <div class="col-sm-8 blog-main">
           
   
+    <article id="post-使用hexo搭建博客并部署到github" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/11/使用hexo搭建博客并部署到github/">使用hexo搭建博客并部署到github</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2018/11/11/使用hexo搭建博客并部署到github/" class="article-date"><time datetime="2018-11-11T01:45:51.000Z" itemprop="datePublished">2018-11-11</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h4><blockquote>
+<p>现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。</p>
+</blockquote>
+<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>macOS 10.14.1
+</code></pre><h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>部署到github需要安装 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="noopener">hexo-deployer-git</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h3><p>生成公钥<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//首先查看是否有公钥</span><br><span class="line">ls ~/.ssh</span><br><span class="line">//若没有id_rsa.pub文件则没有，需要生成公钥</span><br><span class="line">ssh-keygen -t rsa -C “你的邮箱”</span><br></pre></td></tr></table></figure></p>
+<p>配置公钥<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 登录Github，点击头像下的settings，添加ssh。新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</span><br><span class="line">// 查看是否配置成功，若出现hi 你的名字 则成功</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>新建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在github新建项目，以github账号blue-troy为例新建项目名：blue-troy.github.io</span><br></pre></td></tr></table></figure></p>
+<p>在 _config.yml 中修改参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repo: github: git@github.com:blue-troy/blue-troy.github.io.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>发布前生成网页并查看是否正确<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>确认无误后发布到github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>发布后以本人为例的访问地址为<br><a href="https://blue-troy.github.io/" target="_blank" rel="noopener">https://blue-troy.github.io/</a> ，</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://blog.bluetroy.com/2018/11/11/使用hexo搭建博客并部署到github/" data-id="cjoc9320i0000g60oqpbsv1ev" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ubuntu18-04安装jdk并配置" class="article article-type-post" itemscope="" itemprop="blogPost">
 
   <header class="article-header">
@@ -130,7 +195,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjoc7p73n0000ay0ohzfbzow4" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjoc92aiz0002fw0ovud8w34z" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -191,7 +256,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjoc7p73t0001ay0ob7p0g79w" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjoc92aiu0001fw0o8hpxsuza" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -227,7 +292,7 @@
   
   <div class="sidebar-module">
     <h4>Tags</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/jdk/">jdk</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linux/">linux</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ubuntu/">ubuntu</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口代理/">端口代理</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口转发/">端口转发</a><span class="sidebar-module-list-count">1</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/hexo/">hexo</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/jdk/">jdk</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linux/">linux</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ubuntu/">ubuntu</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口代理/">端口代理</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口转发/">端口转发</a><span class="sidebar-module-list-count">1</span></li></ul>
   </div>
 
 
@@ -236,7 +301,7 @@
   <div class="sidebar-module">
     <h4>Tag Cloud</h4>
     <p class="tagcloud">
-      <a href="/tags/jdk/" style="font-size: 10px;">jdk</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/端口代理/" style="font-size: 10px;">端口代理</a> <a href="/tags/端口转发/" style="font-size: 10px;">端口转发</a>
+      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jdk/" style="font-size: 10px;">jdk</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/端口代理/" style="font-size: 10px;">端口代理</a> <a href="/tags/端口转发/" style="font-size: 10px;">端口转发</a>
     </p>
   </div>
 
@@ -244,7 +309,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/11/">十一月 2018</a><span class="sidebar-module-list-count">2</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/11/">十一月 2018</a><span class="sidebar-module-list-count">3</span></li></ul>
   </div>
 
 
@@ -253,6 +318,10 @@
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2018/11/11/使用hexo搭建博客并部署到github/">使用hexo搭建博客并部署到github</a>
+        </li>
       
         <li>
           <a href="/2018/11/10/ubuntu18-04安装jdk并配置/">ubuntu18.04安装jdk并配置</a>
