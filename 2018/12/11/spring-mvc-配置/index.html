@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>bluetroy&#39;s blog</title>
+  <title>spring mvc 配置 | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
-<meta name="keywords" content="bluetroy java linux idea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="bluetroy&#39;s blog">
-<meta property="og:url" content="http://blog.bluetroy.com/index.html">
+  <meta name="description" content="导语： 配置spring mvc 是一件很简单的事,但是看到网上有些人写的很乱  配置配置依赖spring mvc 只需要这一个包，没必要重复引入core,context 等包1234567&amp;lt;dependencies&amp;gt;        &amp;lt;dependency&amp;gt;            &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;">
+<meta name="keywords" content="spring mvc,配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring mvc 配置">
+<meta property="og:url" content="http://blog.bluetroy.com/2018/12/11/spring-mvc-配置/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
-<meta property="og:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta property="og:description" content="导语： 配置spring mvc 是一件很简单的事,但是看到网上有些人写的很乱  配置配置依赖spring mvc 只需要这一个包，没必要重复引入core,context 等包1234567&amp;lt;dependencies&amp;gt;        &amp;lt;dependency&amp;gt;            &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-10T17:55:40.829Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bluetroy&#39;s blog">
-<meta name="twitter:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta name="twitter:title" content="spring mvc 配置">
+<meta name="twitter:description" content="导语： 配置spring mvc 是一件很简单的事,但是看到网上有些人写的很乱  配置配置依赖spring mvc 只需要这一个包，没必要重复引入core,context 等包1234567&amp;lt;dependencies&amp;gt;        &amp;lt;dependency&amp;gt;            &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;">
   
     <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
   
@@ -52,7 +53,7 @@
     <div class="collapse navbar-collapse" id="main-menu-navbar">
       <ul class="nav navbar-nav">
         
-          <li><a class="active" href="/index.html">Home</a></li>
+          <li><a class="" href="/index.html">Home</a></li>
         
           <li><a class="" href="/archives/">Archives</a></li>
         
@@ -77,15 +78,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-    <article id="post-spring-mvc-配置" class="article article-type-post" itemscope="" itemprop="blogPost">
+          <article id="post-spring-mvc-配置" class="article article-type-post" itemscope="" itemprop="blogPost">
 
   <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/11/spring-mvc-配置/">spring mvc 配置</a>
+    <h1 class="article-title" itemprop="name">
+      spring mvc 配置
     </h1>
   
 
@@ -134,138 +133,22 @@
     </footer>
   </div>
   
-</article>
-
-
-
-  
-    <article id="post-ubuntu18-04安装jdk并配置" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-  <header class="article-header">
     
+<ul id="article-nav" class="nav nav-pills nav-justified">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/10/ubuntu18-04安装jdk并配置/">ubuntu18.04安装jdk并配置</a>
-    </h1>
+  <li role="presentation">
+    <a href="/2018/11/10/ubuntu18-04安装jdk并配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">ubuntu18.04安装jdk并配置</span>
+    </a>
+  </li>
   
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2018/11/10/ubuntu18-04安装jdk并配置/" class="article-date"><time datetime="2018-11-10T09:08:41.000Z" itemprop="datePublished">2018-11-10</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h4><blockquote>
-<p>现代的许多linux操作系统有了很方便的包管理系统，安装配置jdk变得尤其简单。然而网上一些同学给新手介绍的却常用一些相对复杂的方法，让人感到困惑。</p>
-</blockquote>
-<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
-</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//搜索jdk包</span><br><span class="line">sudo apt search openjdk</span><br><span class="line">//安装jdk 这里选择的是最新的 LTS-jdk jdk11</span><br><span class="line">sudo apt install openjdk-11-jdk -y</span><br><span class="line">//查看java版本 若成功输出则代表安装成功</span><br><span class="line">sudo java -version</span><br></pre></td></tr></table></figure>
-<p>本环境为例成功输出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openjdk version "10.0.2" 2018-07-17</span><br><span class="line">OpenJDK Runtime Environment (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.3)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 10.0.2+13-Ubuntu-1ubuntu0.18.04.3, mixed mode)</span><br></pre></td></tr></table></figure>
-<h3 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h3><ul>
-<li><p>1 查找jdk真实地址</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//尝试输出java_home 若输出空行则代表未进行配置需要配置</span><br><span class="line">echo $java_home</span><br><span class="line">//利用以下步骤找到java_home</span><br><span class="line">which java</span><br><span class="line">// 输出 /usr/bin/java 我们再去找这个/usr/bin/java的实际位置</span><br><span class="line">file /usr/bin/java</span><br><span class="line">//输出 /usr/bin/java: symbolic link to /etc/alternatives/java 继续深入查找</span><br><span class="line">file /etc/alternatives/java</span><br><span class="line">// 输出 /etc/alternatives/java: symbolic link to /usr/lib/jvm/java-11-openjdk-amd64/bin/java</span><br><span class="line">// 好了现在找到了jdk的真实地址了 ：/usr/lib/jvm/java-11-openjdk-amd64/bin/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2 配置 java_home</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//把刚刚的地址输入到~/.bashrc中</span><br><span class="line">sudo echo export JAVA_HOME=”/usr/lib/jvm/java-11-openjdk-amd64/bin”&gt;&gt;~/.bashrc</span><br><span class="line">// 执行 ~/.bashrc</span><br><span class="line">source ~/.bashrc</span><br><span class="line">// 验证刚刚的配置，若末尾出现java_home 相关内容则说明配置成功</span><br><span class="line">tail  ~/.bashrc</span><br></pre></td></tr></table></figure></li>
+  
 </ul>
 
-      
-    </div>
 
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjpima4m800098p0ovk96sud3" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jdk/">jdk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
-
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-nginx进行端口转发" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/05/nginx进行端口转发/">利用nginx进行端口转发</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2018/11/05/nginx进行端口转发/" class="article-date"><time datetime="2018-11-05T11:24:16.000Z" itemprop="datePublished">2018-11-05</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h4><blockquote>
-<p>我们的域名绑定到服务器上，通常就是绑定到服务器的80端口上。倘若我们的应用绑定的是非80端口，或者是有多个端口对应多个不同域名，就需要用到端口转发了。nginx就是这样一个适合我们的高效简单的反向代理服务器。以下以ubuntu18.04为例进行安装配置。</p>
-</blockquote>
-<h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
-</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="一、安装及配置"><a href="#一、安装及配置" class="headerlink" title="一、安装及配置"></a>一、安装及配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//安装nginx</span><br><span class="line">sudo apt install nginx -y</span><br><span class="line">sudo vim /etc/nginx/sites-enabled/yourProject //新建编辑配置文件</span><br></pre></td></tr></table></figure>
-<p><strong>配置文件:</strong></p>
-<p>例：转发80端口到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line"><span class="meta">#</span>       监听80端口</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line"><span class="meta">#</span>       转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>例：转发绑定到服务器上的blog.bluetroy.com到8080端口<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line"><span class="meta">#</span>       监听绑定在80端口上的域名</span><br><span class="line">        server_name blog.bluetroy.com;</span><br><span class="line">        location / &#123;</span><br><span class="line"><span class="meta">#</span>       转发到8080端口</span><br><span class="line">                    proxy_pass http://127.0.0.1:8080;</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="二、检查配置并开启服务"><a href="#二、检查配置并开启服务" class="headerlink" title="二、检查配置并开启服务"></a>二、检查配置并开启服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//配置文件格式检查 通过后就可以开启</span><br><span class="line">sudo nginx -t -c /etc/nginx/nginx.conf</span><br><span class="line">// 若nginx 已经开启，进行加载配置</span><br><span class="line">sudo service nginx reload</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjpima4m400058p0ozgbmqz6a" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口代理/">端口代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/端口转发/">端口转发</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 
