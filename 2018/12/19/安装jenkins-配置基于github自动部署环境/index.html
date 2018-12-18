@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>安装jenkins,配置基于github自动部署环境 | bluetroy&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="环境：ubuntu 18.04 安装安装依赖jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装1sudo apt install openjdk-8-jdk -y 下载12345//创建项目目录mkdir projects/jenkinscd projects/jenkins//下载wget http://mirrors.jenkins.io/war-s">
+<meta name="keywords" content="bluetroy java linux idea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装jenkins,配置基于github自动部署环境">
+<meta property="og:url" content="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/index.html">
+<meta property="og:site_name" content="bluetroy&#39;s blog">
+<meta property="og:description" content="环境：ubuntu 18.04 安装安装依赖jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装1sudo apt install openjdk-8-jdk -y 下载12345//创建项目目录mkdir projects/jenkinscd projects/jenkins//下载wget http://mirrors.jenkins.io/war-s">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/全局工具配置.png">
+<meta property="og:image" content="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/github配置.png">
+<meta property="og:image" content="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/部署配置.png">
+<meta property="og:updated_time" content="2018-12-18T22:41:51.182Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装jenkins,配置基于github自动部署环境">
+<meta name="twitter:description" content="环境：ubuntu 18.04 安装安装依赖jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装1sudo apt install openjdk-8-jdk -y 下载12345//创建项目目录mkdir projects/jenkinscd projects/jenkins//下载wget http://mirrors.jenkins.io/war-s">
+<meta name="twitter:image" content="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/全局工具配置.png">
+  
+    <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="//cdn.jandan.net/static/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  
+
+</head>
+</html>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-menu-navbar">
+      <ul class="nav navbar-nav">
+        
+          <li><a class="" href="/index.html">Home</a></li>
+        
+          <li><a class="" href="/archives/">Archives</a></li>
+        
+      </ul>
+
+      <!--
+      <ul class="nav navbar-nav navbar-right">
+        
+          <li><a href="/atom.xml" title="RSS Feed"><i class="fa fa-rss"></i></a></li>
+        
+      </ul>
+      -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+  <div class="container">
+    <div class="blog-header">
+  <h1 class="blog-title">bluetroy&#39;s blog</h1>
+  
+</div>
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+          <article id="post-安装jenkins-配置基于github自动部署环境" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      安装jenkins,配置基于github自动部署环境
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2018/12/19/安装jenkins-配置基于github自动部署环境/" class="article-date"><time datetime="2018-12-18T21:58:12.000Z" itemprop="datePublished">2018-12-19</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
+</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-8-jdk -y</span><br></pre></td></tr></table></figure></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//创建项目目录</span><br><span class="line">mkdir projects/jenkins</span><br><span class="line">cd projects/jenkins</span><br><span class="line">//下载</span><br><span class="line">wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war</span><br></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup /usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/ubuntu/projects/jenkins/jenkins.war &gt;&gt; /home/ubuntu/projects/jenkins/log.log &gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>进入服务器:8080,根据提示进行初始化,安装jenkins推荐默认插件</p>
+<h3 id="全局工具配置"><a href="#全局工具配置" class="headerlink" title="全局工具配置"></a>全局工具配置</h3><p>我们采用的是git,maven进行源码管理与项目构建,若没有相关环境需要进行安装。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git maven -y</span><br></pre></td></tr></table></figure></p>
+<p>进入系统管理-&gt;全局工具配置配置工具,配置maven,jdk,git。<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/全局工具配置.png" title="全局工具配置"></p>
+<h3 id="凭据配置"><a href="#凭据配置" class="headerlink" title="凭据配置"></a>凭据配置</h3><p>要连接github需要配置凭据,最简单的可以配置账号密码作为凭据.</p>
+<p>进入凭据-&gt; 系统-&gt; 全局凭据 -&gt;添加凭据</p>
+<h3 id="github配置"><a href="#github配置" class="headerlink" title="github配置"></a>github配置</h3><p>进入系统管理-&gt;系统设置 选择刚刚添加的凭据配置<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/github配置.png" title="github配置"><br>测试连接成功则表示成功配置github</p>
+<h3 id="运行脚本配置"><a href="#运行脚本配置" class="headerlink" title="运行脚本配置"></a>运行脚本配置</h3><p>进入服务器的jenkins workspace 目录下新建我们的运行脚本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .jenkins/workspace</span><br><span class="line">vim restart.sh</span><br></pre></td></tr></table></figure></p>
+<p>脚本如下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">jarpath=`find target/ -name *.jar`</span><br><span class="line">echo $jarpath</span><br><span class="line">function stopServer()&#123;</span><br><span class="line">        echo stopServer $jarpath</span><br><span class="line">        pid=`ps -ef | grep $jarpath | grep -v grep | awk '&#123;print $2&#125;'`</span><br><span class="line">        if [ -n "$pid" ]</span><br><span class="line">        then</span><br><span class="line">                kill -9 $pid</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line">function startServer()&#123;</span><br><span class="line">        echo startServer $jarpath</span><br><span class="line">        jarname=`echo $jarpath | grep -oP "[^\/]+(?=.jar)"`</span><br><span class="line">        echo $jarname</span><br><span class="line">        BUILD_ID=dontKillMe nohup java -jar $jarpath &gt; /root/projects/"$&#123;jarname&#125;".log 2&gt;&amp;1 &amp;</span><br><span class="line">        echo success</span><br><span class="line">&#125;</span><br><span class="line">stopServer</span><br><span class="line">startServer</span><br></pre></td></tr></table></figure></p>
+<p>赋予脚本权限<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 ./restart.sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><p>新建项目-&gt;构建一个自由风格的项目<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/部署配置.png" title="部署配置"></p>
+<h3 id="自动构建部署"><a href="#自动构建部署" class="headerlink" title="自动构建部署"></a>自动构建部署</h3><p>进入刚刚新建的项目点击立即构建即可</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/" data-id="cjpualtbe00059v0o8f0p6gla" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2018/12/11/spring-mvc-配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">spring mvc 配置</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+
+  
+</article>
+
+
+
+
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          
+  <div class="sidebar-module sidebar-module-inset">
+  <h4>About</h4>
+  <p>bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。 github地址：<a href="http://github.com/blue-troy">github.com/blue-troy</> </a></p>
+
+</div>
+
+
+  
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tags</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/jdk/">jdk</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/linux/">linux</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/nginx/">nginx</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/spring-mvc/">spring mvc</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/ubuntu/">ubuntu</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口代理/">端口代理</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/端口转发/">端口转发</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/tags/配置/">配置</a><span class="sidebar-module-list-count">1</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Tag Cloud</h4>
+    <p class="tagcloud">
+      <a href="/tags/jdk/" style="font-size: 10px;">jdk</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/spring-mvc/" style="font-size: 10px;">spring mvc</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/端口代理/" style="font-size: 10px;">端口代理</a> <a href="/tags/端口转发/" style="font-size: 10px;">端口转发</a> <a href="/tags/配置/" style="font-size: 10px;">配置</a>
+    </p>
+  </div>
+
+
+  
+  <div class="sidebar-module">
+    <h4>Archives</h4>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/12/">十二月 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/11/">十一月 2018</a><span class="sidebar-module-list-count">2</span></li></ul>
+  </div>
+
+
+
+  
+  <div class="sidebar-module">
+    <h4>Recents</h4>
+    <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2018/12/19/安装jenkins-配置基于github自动部署环境/">安装jenkins,配置基于github自动部署环境</a>
+        </li>
+      
+        <li>
+          <a href="/2018/12/11/spring-mvc-配置/">spring mvc 配置</a>
+        </li>
+      
+        <li>
+          <a href="/2018/11/10/ubuntu18-04安装jdk并配置/">ubuntu18.04安装jdk并配置</a>
+        </li>
+      
+        <li>
+          <a href="/2018/11/05/nginx进行端口转发/">利用nginx进行端口转发</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+        </div>
+    </div>
+  </div>
+  <footer class="blog-footer">
+  <div class="container">
+    <div id="footer-info" class="inner">
+      &copy; 2018 bluetroy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+  
+
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>

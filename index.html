@@ -79,6 +79,71 @@
         <div class="col-sm-8 blog-main">
           
   
+    <article id="post-安装jenkins-配置基于github自动部署环境" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+  <header class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/19/安装jenkins-配置基于github自动部署环境/">安装jenkins,配置基于github自动部署环境</a>
+    </h1>
+  
+
+
+  </header>
+
+  <div class="article-meta">
+    <div class="article-datetime">
+  <a href="/2018/12/19/安装jenkins-配置基于github自动部署环境/" class="article-date"><time datetime="2018-12-18T21:58:12.000Z" itemprop="datePublished">2018-12-19</time></a>
+</div>
+
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
+</code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-8-jdk -y</span><br></pre></td></tr></table></figure></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//创建项目目录</span><br><span class="line">mkdir projects/jenkins</span><br><span class="line">cd projects/jenkins</span><br><span class="line">//下载</span><br><span class="line">wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war</span><br></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup /usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/ubuntu/projects/jenkins/jenkins.war &gt;&gt; /home/ubuntu/projects/jenkins/log.log &gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>进入服务器:8080,根据提示进行初始化,安装jenkins推荐默认插件</p>
+<h3 id="全局工具配置"><a href="#全局工具配置" class="headerlink" title="全局工具配置"></a>全局工具配置</h3><p>我们采用的是git,maven进行源码管理与项目构建,若没有相关环境需要进行安装。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git maven -y</span><br></pre></td></tr></table></figure></p>
+<p>进入系统管理-&gt;全局工具配置配置工具,配置maven,jdk,git。<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/全局工具配置.png" title="全局工具配置"></p>
+<h3 id="凭据配置"><a href="#凭据配置" class="headerlink" title="凭据配置"></a>凭据配置</h3><p>要连接github需要配置凭据,最简单的可以配置账号密码作为凭据.</p>
+<p>进入凭据-&gt; 系统-&gt; 全局凭据 -&gt;添加凭据</p>
+<h3 id="github配置"><a href="#github配置" class="headerlink" title="github配置"></a>github配置</h3><p>进入系统管理-&gt;系统设置 选择刚刚添加的凭据配置<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/github配置.png" title="github配置"><br>测试连接成功则表示成功配置github</p>
+<h3 id="运行脚本配置"><a href="#运行脚本配置" class="headerlink" title="运行脚本配置"></a>运行脚本配置</h3><p>进入服务器的jenkins workspace 目录下新建我们的运行脚本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd .jenkins/workspace</span><br><span class="line">vim restart.sh</span><br></pre></td></tr></table></figure></p>
+<p>脚本如下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">jarpath=`find target/ -name *.jar`</span><br><span class="line">echo $jarpath</span><br><span class="line">function stopServer()&#123;</span><br><span class="line">        echo stopServer $jarpath</span><br><span class="line">        pid=`ps -ef | grep $jarpath | grep -v grep | awk '&#123;print $2&#125;'`</span><br><span class="line">        if [ -n "$pid" ]</span><br><span class="line">        then</span><br><span class="line">                kill -9 $pid</span><br><span class="line">        fi</span><br><span class="line">&#125;</span><br><span class="line">function startServer()&#123;</span><br><span class="line">        echo startServer $jarpath</span><br><span class="line">        jarname=`echo $jarpath | grep -oP "[^\/]+(?=.jar)"`</span><br><span class="line">        echo $jarname</span><br><span class="line">        BUILD_ID=dontKillMe nohup java -jar $jarpath &gt; /root/projects/"$&#123;jarname&#125;".log 2&gt;&amp;1 &amp;</span><br><span class="line">        echo success</span><br><span class="line">&#125;</span><br><span class="line">stopServer</span><br><span class="line">startServer</span><br></pre></td></tr></table></figure></p>
+<p>赋予脚本权限<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 ./restart.sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><p>新建项目-&gt;构建一个自由风格的项目<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/部署配置.png" title="部署配置"></p>
+<h3 id="自动构建部署"><a href="#自动构建部署" class="headerlink" title="自动构建部署"></a>自动构建部署</h3><p>进入刚刚新建的项目点击立即构建即可</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="http://blog.bluetroy.com/2018/12/19/安装jenkins-配置基于github自动部署环境/" data-id="cjpualtbe00059v0o8f0p6gla" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-spring-mvc-配置" class="article article-type-post" itemscope="" itemprop="blogPost">
 
   <header class="article-header">
@@ -123,7 +188,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/12/11/spring-mvc-配置/" data-id="cjpsyqsfk0009dr0olru2ugj9" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/12/11/spring-mvc-配置/" data-id="cjpualtbq000g9v0odg7687oh" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -189,7 +254,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjpsyqsfi0007dr0od2pcnd40" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjpualtbp000f9v0oc2nm36o1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -250,7 +315,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjpsyqsff0005dr0ofaimgbtp" class="article-share-link">
+      <a data-url="http://blog.bluetroy.com/2018/11/05/nginx进行端口转发/" data-id="cjpualtb700019v0ottybsfym" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -303,7 +368,7 @@
   
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/12/">十二月 2018</a><span class="sidebar-module-list-count">1</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/11/">十一月 2018</a><span class="sidebar-module-list-count">2</span></li></ul>
+    <ul class="sidebar-module-list"><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/12/">十二月 2018</a><span class="sidebar-module-list-count">2</span></li><li class="sidebar-module-list-item"><a class="sidebar-module-list-link" href="/archives/2018/11/">十一月 2018</a><span class="sidebar-module-list-count">2</span></li></ul>
   </div>
 
 
@@ -312,6 +377,10 @@
   <div class="sidebar-module">
     <h4>Recents</h4>
     <ul class="sidebar-module-list">
+      
+        <li>
+          <a href="/2018/12/19/安装jenkins-配置基于github自动部署环境/">安装jenkins,配置基于github自动部署环境</a>
+        </li>
       
         <li>
           <a href="/2018/12/11/spring-mvc-配置/">spring mvc 配置</a>
