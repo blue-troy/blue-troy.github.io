@@ -5,18 +5,18 @@
   
   <title>ubuntu18.04设置开机启动 | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="导语： ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式  环境：ubuntu 18.04 步骤启用rc-local.service123456ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.servicesudo echo &quot;[In">
-<meta name="keywords" content="ubuntu,linux,开机启动项">
+  <meta name="description" content="导语： ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式  环境：ubuntu 18.04 步骤启用rc-local.service123456//创建rc-localsudo ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.serv">
+<meta name="keywords" content="linux,ubuntu,开机启动项">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ubuntu18.04设置开机启动">
 <meta property="og:url" content="http://blog.bluetroy.club/2018/12/20/ubuntu18-04设置开机启动/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
-<meta property="og:description" content="导语： ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式  环境：ubuntu 18.04 步骤启用rc-local.service123456ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.servicesudo echo &quot;[In">
+<meta property="og:description" content="导语： ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式  环境：ubuntu 18.04 步骤启用rc-local.service123456//创建rc-localsudo ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.serv">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-20T07:37:09.820Z">
+<meta property="og:updated_time" content="2018-12-20T07:44:11.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu18.04设置开机启动">
-<meta name="twitter:description" content="导语： ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式  环境：ubuntu 18.04 步骤启用rc-local.service123456ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.servicesudo echo &quot;[In">
+<meta name="twitter:description" content="导语： ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式  环境：ubuntu 18.04 步骤启用rc-local.service123456//创建rc-localsudo ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.serv">
   
     <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
   
@@ -108,9 +108,9 @@
 <p>ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式</p>
 </blockquote>
 <h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
-</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="启用rc-local-service"><a href="#启用rc-local-service" class="headerlink" title="启用rc-local.service"></a>启用rc-local.service</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.service</span><br><span class="line">sudo echo "</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">Alias=rc-local.service</span><br><span class="line">" &gt;&gt; /etc/systemd/system/rc-local.service</span><br></pre></td></tr></table></figure>
-<h3 id="编辑启动脚本"><a href="#编辑启动脚本" class="headerlink" title="编辑启动脚本"></a>编辑启动脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//创建启动脚本</span><br><span class="line">sudo touch /etc/rc.local</span><br><span class="line">chmod 755 /etc/rc.local</span><br><span class="line">vim vim /etc/rc.local</span><br></pre></td></tr></table></figure>
-<p><strong>脚本如:</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo "hehe"</span><br></pre></td></tr></table></figure></p>
+</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="启用rc-local-service"><a href="#启用rc-local-service" class="headerlink" title="启用rc-local.service"></a>启用rc-local.service</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//创建rc-local</span><br><span class="line">sudo ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.service</span><br><span class="line">//为rc-local添加以下代码</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">Alias=rc-local.service</span><br></pre></td></tr></table></figure>
+<h3 id="编辑启动脚本"><a href="#编辑启动脚本" class="headerlink" title="编辑启动脚本"></a>编辑启动脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//创建启动脚本</span><br><span class="line">sudo touch /etc/rc.local</span><br><span class="line">chmod 755 /etc/rc.local</span><br><span class="line">vim  /etc/rc.local</span><br></pre></td></tr></table></figure>
+<p><strong>脚本如:</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo "hehe" &gt;&gt; hehe.log</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -121,7 +121,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/12/20/ubuntu18-04设置开机启动/" data-id="cjpwamcy70009mx0omkbqcdrw" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/12/20/ubuntu18-04设置开机启动/" data-id="cjpwas9we0009nl0owaqxg9j1" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
