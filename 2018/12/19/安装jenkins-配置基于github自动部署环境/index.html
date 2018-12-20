@@ -16,7 +16,7 @@
 <meta property="og:image" content="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/全局工具配置.png">
 <meta property="og:image" content="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/github配置.png">
 <meta property="og:image" content="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/部署配置.png">
-<meta property="og:updated_time" content="2018-12-18T22:41:51.182Z">
+<meta property="og:updated_time" content="2018-12-20T07:49:10.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装jenkins,配置基于github自动部署环境">
 <meta name="twitter:description" content="环境：ubuntu 18.04 安装安装依赖jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装1sudo apt install openjdk-8-jdk -y 下载12345//创建项目目录mkdir projects/jenkinscd projects/jenkins//下载wget http://mirrors.jenkins.io/war-s">
@@ -112,6 +112,7 @@
 </code></pre><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>jenkins需要java环境，但是不支持jdk 9 及以上,若没有相关环境,需要进行如下安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-8-jdk -y</span><br></pre></td></tr></table></figure></p>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//创建项目目录</span><br><span class="line">mkdir projects/jenkins</span><br><span class="line">cd projects/jenkins</span><br><span class="line">//下载</span><br><span class="line">wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war</span><br></pre></td></tr></table></figure>
 <h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup /usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/ubuntu/projects/jenkins/jenkins.war &gt;&gt; /home/ubuntu/projects/jenkins/log.log &gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p><strong>开机启动方法可参考:</strong> <a href="https://www.bluetroy.club/2018/12/20/ubuntu18-04%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8/" target="_blank" rel="noopener">ubuntu设置开机启动</a></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>进入服务器:8080,根据提示进行初始化,安装jenkins推荐默认插件</p>
 <h3 id="全局工具配置"><a href="#全局工具配置" class="headerlink" title="全局工具配置"></a>全局工具配置</h3><p>我们采用的是git,maven进行源码管理与项目构建,若没有相关环境需要进行安装。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git maven -y</span><br></pre></td></tr></table></figure></p>
 <p>进入系统管理-&gt;全局工具配置配置工具,配置maven,jdk,git。<br><img src="/2018/12/19/安装jenkins-配置基于github自动部署环境/全局工具配置.png" title="全局工具配置"></p>
@@ -133,7 +134,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/" data-id="cjpwas9wg000anl0op5498d5j" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/" data-id="cjpwb1w6k000aoq0ocirh4hk0" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
