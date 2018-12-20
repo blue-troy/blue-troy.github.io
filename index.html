@@ -109,7 +109,7 @@
 <p>ubuntu设置开机启动项通常有两种方法:1.编辑rc.local,2.设置启动服务。这里先介绍rc.local方式</p>
 </blockquote>
 <h4 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h4><pre><code>ubuntu 18.04
-</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="启用rc-local-service"><a href="#启用rc-local-service" class="headerlink" title="启用rc-local.service"></a>启用rc-local.service</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo echo "</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">Alias=rc-local.service</span><br><span class="line">" &gt;&gt; /etc/systemd/system/rc-local.service</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="启用rc-local-service"><a href="#启用rc-local-service" class="headerlink" title="启用rc-local.service"></a>启用rc-local.service</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ln -fs /lib/systemd/system/rc-local.service /etc/systemd/system/rc-local.service</span><br><span class="line">sudo echo "</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">Alias=rc-local.service</span><br><span class="line">" &gt;&gt; /etc/systemd/system/rc-local.service</span><br></pre></td></tr></table></figure>
 <h3 id="编辑启动脚本"><a href="#编辑启动脚本" class="headerlink" title="编辑启动脚本"></a>编辑启动脚本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//创建启动脚本</span><br><span class="line">sudo touch /etc/rc.local</span><br><span class="line">chmod 755 /etc/rc.local</span><br><span class="line">vim vim /etc/rc.local</span><br></pre></td></tr></table></figure>
 <p><strong>脚本如:</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo "hehe"</span><br></pre></td></tr></table></figure></p>
 
@@ -122,7 +122,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/12/20/ubuntu18-04设置开机启动/" data-id="cjpwaegpb0009m50oaot8v021" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/12/20/ubuntu18-04设置开机启动/" data-id="cjpwamcy70009mx0omkbqcdrw" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -189,7 +189,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/" data-id="cjpwaegpc000am50oiticf95x" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/12/19/安装jenkins-配置基于github自动部署环境/" data-id="cjpwamcy9000amx0oz1qpynws" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -247,7 +247,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/12/11/spring-mvc-配置/" data-id="cjpwaegp80005m50obxilufy3" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/12/11/spring-mvc-配置/" data-id="cjpwamcy20005mx0oese2519r" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -313,7 +313,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjpwaegpa0008m50om9elp9vp" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/11/10/ubuntu18-04安装jdk并配置/" data-id="cjpwamcy40006mx0ovqiqwgb8" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
@@ -374,7 +374,7 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://blog.bluetroy.club/2018/11/05/nginx进行端口转发/" data-id="cjpwaegp60004m50oeagvaps8" class="article-share-link">
+      <a data-url="http://blog.bluetroy.club/2018/11/05/nginx进行端口转发/" data-id="cjpwamcy60008mx0ox3rfi5sr" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
