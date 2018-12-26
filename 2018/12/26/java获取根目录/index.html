@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Tag: spring mvc | bluetroy&#39;s blog</title>
+  <title>java获取根目录 | bluetroy&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
-<meta name="keywords" content="bluetroy java linux idea">
-<meta property="og:type" content="website">
-<meta property="og:title" content="bluetroy&#39;s blog">
-<meta property="og:url" content="https://blog.bluetroy.club/tags/spring-mvc/index.html">
+  <meta name="description" content="1234System.out.println(System.getProperty(&quot;java.class.path&quot;));System.out.println(Path.of(new File(&quot;.&quot;).toURI()).toRealPath());System.out.println(App.class.getClassLoader().getResource(&quot;&quot;).getPath());S">
+<meta name="keywords" content="java,目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java获取根目录">
+<meta property="og:url" content="https://blog.bluetroy.club/2018/12/26/java获取根目录/index.html">
 <meta property="og:site_name" content="bluetroy&#39;s blog">
-<meta property="og:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta property="og:description" content="1234System.out.println(System.getProperty(&quot;java.class.path&quot;));System.out.println(Path.of(new File(&quot;.&quot;).toURI()).toRealPath());System.out.println(App.class.getClassLoader().getResource(&quot;&quot;).getPath());S">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-26T02:19:00.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bluetroy&#39;s blog">
-<meta name="twitter:description" content="bluetroy 个人博客，写一点自己遇到的一些问题及解决办法，一些想法。">
+<meta name="twitter:title" content="java获取根目录">
+<meta name="twitter:description" content="1234System.out.println(System.getProperty(&quot;java.class.path&quot;));System.out.println(Path.of(new File(&quot;.&quot;).toURI()).toRealPath());System.out.println(App.class.getClassLoader().getResource(&quot;&quot;).getPath());S">
   
     <link rel="alternate" href="/atom.xml" title="bluetroy&#39;s blog" type="application/atom+xml">
   
@@ -77,40 +78,73 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <header class="archive-article-header">
+          <article id="post-java获取根目录" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+  <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/11/spring-mvc-配置/">spring mvc 配置</a>
+    <h1 class="article-title" itemprop="name">
+      java获取根目录
     </h1>
   
 
 
+  </header>
+
+  <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2018/12/11/spring-mvc-配置/" class="archive-article-date"><time datetime="2018-12-10T17:38:01.000Z" itemprop="datePublished">十二月 11日</time></a>
+  <a href="/2018/12/26/java获取根目录/" class="article-date"><time datetime="2018-12-26T02:09:45.000Z" itemprop="datePublished">2018-12-26</time></a>
 </div>
 
-  </header>
-</article>
+    
+    
+
+  </div>
+  <div class="article-inner">
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(System.getProperty(<span class="string">"java.class.path"</span>));</span><br><span class="line">System.out.println(Path.of(<span class="keyword">new</span> File(<span class="string">"."</span>).toURI()).toRealPath());</span><br><span class="line">System.out.println(App.class.getClassLoader().getResource(<span class="string">""</span>).getPath());</span><br><span class="line">System.out.println(App.class.getResource(<span class="string">"/"</span>).getPath());</span><br></pre></td></tr></table></figure>
+<p>编译class文件并运行时输出<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/Users/xxx/IdeaProjects/agile-software-development/target/classes</span><br><span class="line">/Users/xxx/IdeaProjects/agile-software-development</span><br><span class="line">/Users/xxx/IdeaProjects/agile-software-development/target/classes/</span><br><span class="line">/Users/xxx/IdeaProjects/agile-software-development/target/classes/</span><br></pre></td></tr></table></figure></p>
+<p>打包成可自行jar并运行时输出<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/Users/xxx/IdeaProjects/agile-software-development/target/agile-software-development-1.0-SNAPSHOT.jar</span><br><span class="line">/Users/xxx/IdeaProjects/agile-software-development</span><br><span class="line">file:/Users/heyixin/IdeaProjects/agile-software-development/target/agile-software-development-1.0-SNAPSHOT.jar!/BOOT-INF/classes!/</span><br><span class="line">file:/Users/heyixin/IdeaProjects/agile-software-development/target/agile-software-development-1.0-SNAPSHOT.jar!/BOOT-INF/classes!/</span><br></pre></td></tr></table></figure></p>
+<p>可以总结出<br>System.getProperty(“java.class.path”)获取的是不解析jar包情况下的class位置<br>new File(“.”) 获取到的是执行命令的当前目录 相当于 pwd命令<br>App.class.getClassLoader().getResource(“”).getPath() = App.class.getResource(“/“).getPath() 获取的是解析jar包情况下的class地址。即地址中包括class在jar包中的位置</p>
+
+      
+    </div>
+
+    
+      
+
+    
+
+    <footer class="article-footer">
+      <a data-url="https://blog.bluetroy.club/2018/12/26/java获取根目录/" data-id="cjq4jwdyj00047j0oz13motk9" class="article-share-link">
+        <i class="fa fa-share"></i> Share
+      </a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/目录/">目录</a></li></ul>
+
+
+    </footer>
+  </div>
+  
+    
+<ul id="article-nav" class="nav nav-pills nav-justified">
+  
+  <li role="presentation">
+    <a href="/2018/12/20/ubuntu18-04设置开机启动/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">ubuntu18.04设置开机启动</span>
+    </a>
+  </li>
+  
+  
+</ul>
+
 
   
-  
-    </div></section>
-  
+</article>
 
 
 
